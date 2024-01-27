@@ -1,0 +1,114 @@
+:root {
+    /* Color Palette Generated with colormind.io/bootstrap */
+    --light-shade: #F0F0F0;
+    --light-accent: #80BFD5;
+    --main-color: #1BA1DD;
+    --dark-accent: #95816D;
+    --dark-shade: #26363F;
+
+    --light-accent-shade: #73acc1;
+
+    --nav-height: 40px;
+}
+
+body {
+    margin: 0;
+    background-color: var(--light-shade);
+    color: var(--dark-shade);
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    height: calc(100% - var(--nav-height));
+    text-align: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+h1 {
+    color: #26363F;
+}
+
+nav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: var(--nav-height);
+    background-color: var(--light-accent);
+    scroll-snap-align: start;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    float: left;
+}
+
+nav a {
+    display: flex;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    align-items: center;
+    color: var(--dark-shade);
+    text-decoration: none;
+}
+
+nav a.active {
+    color: var(--light-shade);
+    background-color: var(--main-color);
+}
+
+nav a:hover:not(.active) {
+    color: var(--light-shade);
+    background-color: var(--light-accent-shade);
+}
+
+.snap-scroll {
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.content-wrapper {
+    height: calc(100% - var(--nav-height))
+}
+
+section {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    /* padding-top: var(--nav-height); */
+}
+
+article {
+    display: flex;
+    width: 1000px;
+    height: 600px;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 20px #b3b3b3;
+}
+
+footer {
+    scroll-snap-align: start;
+}
+
+@media (max-width: 819px) {
+    article {
+        width: 500px;
+        height: 500px;
+    }
+}

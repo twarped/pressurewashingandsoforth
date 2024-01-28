@@ -9,6 +9,8 @@
     --light-accent-shade: #73acc1;
 
     --nav-height: 40px;
+
+    scroll-behavior: smooth;
 }
 
 body {
@@ -72,6 +74,7 @@ nav a:hover:not(.active) {
 
 .snap-scroll {
     scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
     overflow-x: hidden;
     overflow-y: scroll;
     height: 100%;
@@ -102,6 +105,28 @@ article {
     box-shadow: 0px 0px 20px #b3b3b3;
 }
 
+.carousel {
+    height: calc(100%);
+    width: 100%;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    scroll-padding: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.carousel > img {
+    scroll-snap-align: center;
+    display: inline-block;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.carousel > img:first-child {
+    margin-left: 0;
+}
+
 footer {
     scroll-snap-align: start;
 }
@@ -110,5 +135,18 @@ footer {
     article {
         width: 500px;
         height: 500px;
+    }
+}
+
+@media (max-width: 500px) {
+    article {
+        width: 100%;
+    }
+}
+
+@media (max-height: 500px) {
+    article {
+        height: 100%;
+        box-shadow: none;
     }
 }

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="600" viewBox="0,0,600,600">
+    <g>
+        <g data-paper-data="{&quot;wickUUID&quot;:&quot;ed00f4ec-7c2c-471d-8605-ef08a8fc9825&quot;,&quot;wickType&quot;:&quot;clipsandpaths&quot;}" fill="none" fill-rule="nonzero" stroke="#000000" stroke-width="100" stroke-linecap="round" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <line x1="50" y1="300" x2="550" y2="300" data-paper-data="{&quot;wickUUID&quot;:&quot;d6fe0b7c-59d2-40b5-952f-bb4fa179dbdd&quot;,&quot;wickType&quot;:&quot;path&quot;}" id="d6fe0b7c-59d2-40b5-952f-bb4fa179dbdd"/>
+            <line x1="50" y1="100" x2="550" y2="100" data-paper-data="{&quot;wickUUID&quot;:&quot;cef0d47a-d129-469c-a6d8-0f257976f4c9&quot;,&quot;wickType&quot;:&quot;path&quot;}" id="cef0d47a-d129-469c-a6d8-0f257976f4c9"/>
+            <line x1="50" y1="500" x2="550" y2="500" data-paper-data="{&quot;wickUUID&quot;:&quot;f4674709-8739-4581-b52f-40ef81328ba1&quot;,&quot;wickType&quot;:&quot;path&quot;}" id="f4674709-8739-4581-b52f-40ef81328ba1"/>
+        </g>
+    </g>
+</svg>

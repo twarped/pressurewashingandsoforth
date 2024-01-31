@@ -8,9 +8,17 @@
 
     --light-accent-shade: #73acc1;
 
+    /* Using nav-height as a variable for the responsive design */
     --nav-height: 40px;
 
+    /* This line defines whether or not to show more of the navbar */
+    --display-more-lines: 0;
+}
+
+html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: var(--nav-height);
 }
 
 body {
@@ -33,21 +41,28 @@ h1 {
 }
 
 nav {
+    /* Flex allows the three bars to show up on the right */
+    display: flex;
+
+    height: calc(var(--nav-height));
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    height: var(--nav-height);
     background-color: var(--light-accent);
-    scroll-snap-align: start;
+    scroll-snap-align: none;
+    overflow: hidden;
 }
 
 nav ul {
+    width: calc(100% - var(--nav-height));
+
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 nav li {
+    height: var(--nav-height);
     display: inline;
     float: left;
 }
@@ -72,22 +87,55 @@ nav a:hover:not(.active) {
     background-color: var(--light-accent-shade);
 }
 
-.snap-scroll {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: 100%;
+#more-wrapper {
+    background-color: var(--light-accent);
+
+    width: var(--nav-height);
+    height: var(--nav-height);
+
+    float: right;
 }
 
-.content-wrapper {
-    height: calc(100% - var(--nav-height))
+#more-wrapper:hover {
+    background-color: var(--light-accent-shade);
+
+    cursor: pointer;
+
+    --display-more: 1;
+}
+
+#more-wrapper:not(:hover) {
+    --display-more: 0;
+}
+
+#more {
+    /* Local variable to help with easy styling adjustments */
+    --padding: 13px;
+
+    background-color: var(--dark-shade);
+
+    /* Creates a mask of the background-color */
+    -webkit-mask-image: url(/public/threebars.svg);
+    mask-image: url(/public/threebars.svg);
+    /* Simple maths to calculate the mask size using the padding and navbar height */
+    mask-size: calc(var(--nav-height) - var(--padding) * 2) calc(var(--nav-height) - var(--padding) * 2);
+    mask-origin: content-box;
+    mask-repeat: no-repeat;
+
+    /* Sets the padding for the mask to sit in */
+    padding: var(--padding);
+
+    width: 100%;
+    height: 100%;
+
+    /* Helps keep the padding in the div */
+    box-sizing: border-box;
 }
 
 section {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: calc(100% - var(--nav-height));
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -98,32 +146,41 @@ section {
 
 article {
     display: flex;
-    width: 1000px;
-    height: 600px;
+    width: calc(100% - 200px);
+    height: calc(100% - 200px);
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 0px 20px #b3b3b3;
+    border-radius: 5px;
 }
 
 .carousel {
-    height: calc(100%);
-    width: 100%;
-    display: flex;
-    scroll-snap-type: x mandatory;
-    overflow-x: scroll;
-    scroll-padding: 50%;
-    padding: 20px;
-    box-sizing: border-box;
+    height: calc(100% - 20px);
+    width: calc(100% - 40px);
+    overflow: hidden;
+    margin: 20px;
+    margin-top: 0;
+    border-radius: 5px;
 }
 
-.carousel > img {
-    scroll-snap-align: center;
-    display: inline-block;
+.carousel-slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
     width: 100%;
+    height: 100%;
+}
+
+.carousel-slides > img {
+    border-radius: 5px;
+    scroll-snap-align: center;
     margin-left: 20px;
 }
 
-.carousel > img:first-child {
+.carousel-slides > img:first-child {
     margin-left: 0;
 }
 

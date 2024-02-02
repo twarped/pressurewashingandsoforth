@@ -8,4 +8,3 @@ navA.forEach(el => {
         el.target.classList.add('active');
     });
 });
-

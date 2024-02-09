@@ -50,13 +50,19 @@ nav {
     /* Flex allows the three bars to show up on the right */
     display: flex;
 
-    height: calc(var(--nav-height));
+    width: 100%;
+    height: fit-content;
+
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    /* top: 0; */
     background-color: var(--light-accent);
     scroll-snap-align: none;
     overflow: hidden;
+}
+
+nav:not(.up) {
+    top: 0;
 }
 
 ul {
@@ -64,11 +70,10 @@ ul {
 }
 
 nav ul {
-    width: calc(100% - var(--nav-height));
+    width: 100%;
 
     list-style-type: none;
     padding: 0;
-    margin: 0;
 }
 
 nav li {
@@ -92,106 +97,6 @@ nav a.active {
     background-color: var(--main-color);
 
     overflow: hidden;
-    /* text-shadow: 0.25px 0.25px grey, 
-          0.5px 0.5px grey, 
-          0.75px 0.75px grey, 
-          1px 1px grey, 
-          1.25px 1.25px grey, 
-          1.5px 1.5px grey, 
-          1.75px 1.75px grey, 
-          2px 2px grey, 
-          2.25px 2.25px grey, 
-          2.5px 2.5px grey, 
-          2.75px 2.75px grey, 
-          3px 3px grey, 
-          3.25px 3.25px grey, 
-          3.5px 3.5px grey, 
-          3.75px 3.75px grey, 
-          4px 4px grey, 
-          4.25px 4.25px grey, 
-          4.5px 4.5px grey, 
-          4.75px 4.75px grey, 
-          5px 5px grey, 
-          5.25px 5.25px grey, 
-          5.5px 5.5px grey, 
-          5.75px 5.75px grey, 
-          6px 6px grey, 
-          6.25px 6.25px grey, 
-          6.5px 6.5px grey, 
-          6.75px 6.75px grey, 
-          7px 7px grey, 
-          7.25px 7.25px grey, 
-          7.5px 7.5px grey, 
-          7.75px 7.75px grey, 
-          8px 8px grey, 
-          8.25px 8.25px grey, 
-          8.5px 8.5px grey, 
-          8.75px 8.75px grey, 
-          9px 9px grey, 
-          9.25px 9.25px grey, 
-          9.5px 9.5px grey, 
-          9.75px 9.75px grey, 
-          10px 10px grey, 
-          10.25px 10.25px grey, 
-          10.5px 10.5px grey, 
-          10.75px 10.75px grey, 
-          11px 11px grey, 
-          11.25px 11.25px grey, 
-          11.5px 11.5px grey, 
-          11.75px 11.75px grey, 
-          12px 12px grey, 
-          12.25px 12.25px grey, 
-          12.5px 12.5px grey, 
-          12.75px 12.75px grey, 
-          13px 13px grey, 
-          13.25px 13.25px grey, 
-          13.5px 13.5px grey, 
-          13.75px 13.75px grey, 
-          14px 14px grey, 
-          14.25px 14.25px grey, 
-          14.5px 14.5px grey, 
-          14.75px 14.75px grey, 
-          15px 15px grey, 
-          15.25px 15.25px grey, 
-          15.5px 15.5px grey, 
-          15.75px 15.75px grey, 
-          16px 16px grey, 
-          16.25px 16.25px grey, 
-          16.5px 16.5px grey, 
-          16.75px 16.75px grey, 
-          17px 17px grey, 
-          17.25px 17.25px grey, 
-          17.5px 17.5px grey, 
-          17.75px 17.75px grey, 
-          18px 18px grey, 
-          18.25px 18.25px grey, 
-          18.5px 18.5px grey, 
-          18.75px 18.75px grey, 
-          19px 19px grey, 
-          19.25px 19.25px grey, 
-          19.5px 19.5px grey, 
-          19.75px 19.75px grey, 
-          20px 20px grey, 
-          20.25px 20.25px grey, 
-          20.5px 20.5px grey, 
-          20.75px 20.75px grey, 
-          21px 21px grey, 
-          21.25px 21.25px grey, 
-          21.5px 21.5px grey, 
-          21.75px 21.75px grey, 
-          22px 22px grey, 
-          22.25px 22.25px grey, 
-          22.5px 22.5px grey, 
-          22.75px 22.75px grey, 
-          23px 23px grey, 
-          23.25px 23.25px grey, 
-          23.5px 23.5px grey, 
-          23.75px 23.75px grey, 
-          24px 24px grey, 
-          24.25px 24.25px grey, 
-          24.5px 24.5px grey, 
-          24.75px 24.75px grey, 
-          25px 25px grey; */
 }
 
 nav a:hover:not(.active) {
@@ -220,7 +125,8 @@ nav a[href="#home"] {
     width: var(--nav-height);
     height: var(--nav-height);
 
-    float: right;
+    position: absolute;
+    right: 0;
 }
 
 .fa-wrapper:hover {
@@ -355,7 +261,7 @@ footer a:hover {
 /* This max-width is the width of the content on the navbar. 
 
    This @media displays the fa-bars when width is max-width amount or less. */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     nav li {
         float: none;
     }
@@ -368,21 +274,65 @@ footer a:hover {
         width: fit-content;
     }
 
+    nav.dropdown {
+        box-shadow: 0px 0px 20px #b3b3b3;
+    }
+
+    nav.dropdown.up {
+        position: fixed;
+        bottom: 0;
+    }
+    
+    nav.dropdown ul {
+        display: flex;
+    
+        flex-direction: column;
+    
+        width: 100%;
+    }
+    
+    nav.dropdown li {
+        display: block;
+        float: none;
+    }
+
+    nav.dropdown.up li:first-of-type {
+        order: 100;
+    }
+    
+    nav.dropdown .fa-wrapper {
+        background-color: var(--main-color);
+    }
+
+    nav.dropdown.up .fa-wrapper {
+        bottom: 0;
+    }
+    
+    nav.dropdown .fa-bars {
+        background-color: var(--light-shade);
+    }
+    
+    nav.dropdown.up {
+    
+    }
+
     .fa-wrapper {
         display: block;
     }
 }
 
-@media (max-width: 819px) {
+/* This max-width is for a nice look with the articles */
+@media (max-width: 700px) {
     article {
         width: 500px;
-        height: 500px;
     }
 }
 
 @media (max-width: 500px) {
     article {
         width: 100%;
+
+        border-radius: 0;
     }
 }
 

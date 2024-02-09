@@ -1,5 +1,6 @@
 // Element variables
 const scrollSnapBodies = document.body.querySelectorAll('.scroll-snap');
+const nav = document.querySelector('nav');
 const navAs = document.body.querySelectorAll('nav a');
 const baCarouselSlides = document.body.querySelector('#beforeandafter .carousel-slides');
 const footer = document.body.querySelector('footer');
@@ -39,6 +40,7 @@ function navClick(ev) {
         el.classList.remove('active');
     });
     ev.target.classList.add('active');
+    if (ev.target.classList) {}
 };
 
 /**
@@ -48,7 +50,7 @@ function navClick(ev) {
  * @param {Boolean} log Whether or not to log the sections and stuff
  */
 
-function checkActiveSection(ev = new Event('scroll'), log = true) {
+function checkActiveSection(ev = new Event('scroll'), log = false) {
     const sections = [...document.body.querySelectorAll('header'), ...document.body.querySelectorAll('section')];
     const activeSection = sections.filter(section => {
         setNavHeight();
@@ -62,6 +64,15 @@ function checkActiveSection(ev = new Event('scroll'), log = true) {
 
     if (activeSection[0]) {
         navClick({ target: document.body.querySelector(`nav a[href="#${ activeSection[0].id }"]`) });
+        
+        console.log(activeSection[0].id);
+
+        // set the navbar position
+        if (activeSection[0].id == 'home') {
+            nav.classList.add('up');
+        } else {
+            nav.classList.remove('up');
+        }
     };
 
     if (log) {

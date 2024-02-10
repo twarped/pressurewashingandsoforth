@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,9 +13,10 @@
         <header id="home">
             <h1>Pressure Washing And So Forth</h1>
         </header>
-        <nav class="dropdown up">
+        <div class="nav-fallback"></div>
+        <nav class="sidebar up">
+            <li><a href="#home" class="active"><div class="logo"></div></a></li>
             <ul>
-                <li><a href="#home" class="active"><div class="logo"></div></a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#locations">Locations</a></li>
@@ -22,9 +24,10 @@
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
-            <div class="fa-wrapper">
+            <div id="nav-fa" class="fa-wrapper">
                 <div class="fa-bars"></div>
             </div>
+            <div class="mask"></div>
         </nav>
         <section id="about">
             <article>

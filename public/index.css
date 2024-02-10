@@ -55,7 +55,7 @@ nav {
 
     position: -webkit-sticky;
     position: sticky;
-    /* top: 0; */
+    right: 0;
     background-color: var(--light-accent);
     scroll-snap-align: none;
     overflow: hidden;
@@ -70,6 +70,8 @@ ul {
 }
 
 nav ul {
+    right: 0;
+
     width: 100%;
 
     list-style-type: none;
@@ -105,14 +107,30 @@ nav a:hover:not(.active) {
 }
 
 nav a[href="#home"] {
+    width: var(--nav-height);
+
     padding: 0px;
 }
 
+.mask {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--dark-shade);
+    opacity: .2;
+}
+
 .logo {
-    width: 30px;
+    width: 100%;
     height: 30px;
     background-image: url(/public/logo.svg);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 
     margin: 5px;
 }
@@ -266,58 +284,63 @@ footer a:hover {
         float: none;
     }
     
-    nav:not(.dropdown) a:not(a[href="#home"]) {
+    nav:not(.sidebar) a:not(a[href="#home"]) {
         display: none;
     }
-    
-    nav:not(.dropdown) a[href="#home"] {
-        width: fit-content;
-    }
 
-    nav.dropdown {
+    nav.sidebar {
+        flex-direction: column;
+
         box-shadow: 0px 0px 20px #b3b3b3;
+        width: 100%;
+        /* height: 100%; */
+        position: fixed;
+        user-select: none;
     }
 
-    nav.dropdown.up {
-        position: fixed;
+    nav.sidebar.up {
+        flex-direction: column-reverse;
+
         bottom: 0;
     }
     
-    nav.dropdown ul {
-        display: flex;
-    
-        flex-direction: column;
-    
+    nav.sidebar ul {
         width: 100%;
+
+        display: flex;
+        /* margin-top: ; */
+        
+        flex-direction: column;
+    }
+
+    nav.sidebar.up ul {
+        flex-direction: column-reverse;
     }
     
-    nav.dropdown li {
+    nav.sidebar li {
         display: block;
+        width: 100%;
         float: none;
     }
 
-    nav.dropdown.up li:first-of-type {
-        order: 100;
+    nav.sidebar a[href="#home"] {
+        width: 100%;
     }
     
-    nav.dropdown .fa-wrapper {
+    .fa-wrapper {
+        display: block;
+    }
+    
+    nav.sidebar .fa-wrapper {
         background-color: var(--main-color);
     }
 
-    nav.dropdown.up .fa-wrapper {
+    nav.sidebar.up .fa-wrapper {
         bottom: 0;
     }
     
-    nav.dropdown .fa-bars {
+    nav.sidebar .fa-bars {
         background-color: var(--light-shade);
-    }
-    
-    nav.dropdown.up {
-    
-    }
-
-    .fa-wrapper {
-        display: block;
     }
 }
 

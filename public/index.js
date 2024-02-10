@@ -2,6 +2,7 @@
 const scrollSnapBodies = document.body.querySelectorAll('.scroll-snap');
 const nav = document.querySelector('nav');
 const navAs = document.body.querySelectorAll('nav a');
+const navFa = document.getElementById('nav-fa');
 const baCarouselSlides = document.body.querySelector('#beforeandafter .carousel-slides');
 const footer = document.body.querySelector('footer');
 
@@ -40,7 +41,18 @@ function navClick(ev) {
         el.classList.remove('active');
     });
     ev.target.classList.add('active');
-    if (ev.target.classList) {}
+    nav.classList.remove('sidebar');
+};
+
+
+
+function expandSidebar() {
+    console.log(nav.classList.contains('sidebar'));
+    if (nav.classList.contains('sidebar')) {
+        nav.classList.remove('sidebar');
+    } else {
+        nav.classList.add('sidebar');
+    };
 };
 
 /**
@@ -82,11 +94,23 @@ function checkActiveSection(ev = new Event('scroll'), log = false) {
     };
 };
 
+/**
+ * Finds what carousel slide we're currently looking at and does some more stuff
+ * 
+ * @param {Event} ev The scroll event captured by the carousel
+ */
+
+function checkActiveSlide(ev = new Event('scroll')) {
+
+}
+
 
 // Event Listeners
 navAs.forEach(el => {
     el.addEventListener('click', navClick);
 });
+
+navFa.addEventListener('click', expandSidebar);
 
 scrollSnapBodies.forEach(el => {
     el.addEventListener('scroll', checkActiveSection);

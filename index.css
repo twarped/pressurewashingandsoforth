@@ -112,6 +112,16 @@ nav a[href="#home"] {
     padding: 0px;
 }
 
+.nav-fallback {
+    display: none;
+
+    height: var(--nav-height);
+}
+
+.nav-fallback.active {
+    display: block;
+}
+
 .mask {
     display: none;
     position: fixed;
@@ -323,7 +333,7 @@ footer a:hover {
         float: none;
     }
 
-    nav.sidebar a[href="#home"] {
+    nav.sidebar a[href="home"] {
         width: 100%;
     }
     

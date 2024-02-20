@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | PressureWashingAndSoForth</title>
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/public/index.css">
 </head>
 
 <body>
@@ -13,10 +12,10 @@
         <header id="home">
             <h1>Pressure Washing And So Forth</h1>
         </header>
-        <div class="nav-fallback"></div>
-        <nav class="sidebar up">
-            <li><a href="#home" class="active"><div class="logo"></div></a></li>
+        <div class="nav-backing"></div>
+        <nav class="up">
             <ul>
+                <li><a href="#home" class="active"><div class="logo"></div></a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#locations">Locations</a></li>
@@ -24,10 +23,9 @@
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
-            <div id="nav-fa" class="fa-wrapper">
+            <div class="fa-wrapper">
                 <div class="fa-bars"></div>
             </div>
-            <div class="mask"></div>
         </nav>
         <section id="about">
             <article>
@@ -49,10 +47,10 @@
                 <h1>Before And After</h1>
                 <div class="carousel">
                     <div class="carousel-slides">
-                        <img src="/IMG_0204.jpg" alt="Before After One">
-                        <img src="/IMG_0279.jpg" alt="Before After Two">
-                        <img src="/IMG_0317.jpg" alt="Before After Three">
-                        <img src="/IMG_4305.jpg" alt="Before After Four">
+                        <img src="/public/IMG_0204.jpg" alt="Before After One">
+                        <img src="/public/IMG_0279.jpg" alt="Before After Two">
+                        <img src="/public/IMG_0317.jpg" alt="Before After Three">
+                        <img src="/public/IMG_4305.jpg" alt="Before After Four">
                     </div>
                 </div>
             </article>
@@ -65,6 +63,30 @@
         <section id="contact">
             <article>
                 <h1>Contact Us</h1>
+                <div>
+                    <div id="contact-info">
+    
+                    </div>
+                    <form id="contact-form" method="post">
+                        <label for="tel">Phone Number:</label>
+                        <input type="tel" name="tel" id="tel" pattern="[0-9]{3}(-|)[0-9]{3}(-|)[0-9]{4}" required>
+                        <div>
+                            <label for="name">First Name:</label>
+                            <input type="text" name="first-name" id="first-name" required>
+                        </div>
+                        <div>
+                            <label for="last-name">Last Name:</label>
+                            <input type="text" name="last-name" id="last-name" required>
+                        </div>
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" size="30" pattern=".+@.+\.com">
+                        <label for="details">Job Details:</label>
+                        <input type="text" name="job-details" id="job-details" required>
+                        <label for="date">Rough Date:</label>
+                        <input type="date" name="data" id="date">
+                        <input type="submit" value="Send Job Request">
+                    </form>
+                </div>
             </article>
         </section>
         <footer>
@@ -83,7 +105,7 @@
             </ul>
         </footer>
     </div>
-    <script src="/index.js"></script>
+    <script src="/public/index.js"></script>
 </body>
 
 </html>

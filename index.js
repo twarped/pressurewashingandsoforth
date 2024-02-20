@@ -1,14 +1,18 @@
 // Element variables
 const scrollSnapBodies = document.body.querySelectorAll('.scroll-snap');
+const navBacking = document.body.querySelectorAll('.nav-backing')[0];
 const nav = document.querySelector('nav');
 const navAs = document.body.querySelectorAll('nav a');
-const navFa = document.getElementById('nav-fa');
+const faBars = document.body.querySelectorAll('.fa-bars')[0];
 const baCarouselSlides = document.body.querySelector('#beforeandafter .carousel-slides');
 const footer = document.body.querySelector('footer');
 
 
 // CSS variables
 let navHeight = parseInt((getComputedStyle(document.body)).getPropertyValue('--nav-height'));
+
+// Other variables
+let waitTimeout; // setTimeout id for closeNav function
 
 /**
  * Check to see if the --nav-height has changed (Just in case...)
@@ -41,19 +45,43 @@ function navClick(ev) {
         el.classList.remove('active');
     });
     ev.target.classList.add('active');
-    nav.classList.remove('sidebar');
+    if (ev.type === 'click') {
+        navBacking.classList.remove('active');
+        nav.classList.remove('dropdown');
+    }
 };
 
+/**
+ * What happens when the user clicks the fa bars.
+ * Either opens or closes the expanded navbar
+ */
 
-
-function expandSidebar() {
-    console.log(nav.classList.contains('sidebar'));
-    if (nav.classList.contains('sidebar')) {
-        nav.classList.remove('sidebar');
+function faClick() {
+    if (nav.classList.contains('dropdown')) {
+        navBacking.classList.remove('active');
+        nav.classList.remove('dropdown');
     } else {
-        nav.classList.add('sidebar');
-    };
-};
+        navBacking.classList.add('active');
+        nav.classList.add('dropdown');
+    }
+}
+
+/**
+ * Closes the expanded navbar after a certain wait time unless the navbar is interacted with
+ * @param {Number} wait Time in milliseconds to wait for user to respond to expanded navbar before closing it.
+ */
+
+function closeNav(ev, wait = 250) {
+    function stopWaiting() {
+        clearTimeout(waitTimeout);
+    }
+    const waitTimeout = setTimeout(() => {
+        nav.removeEventListener('mouseover', stopWaiting);
+        navBacking.classList.remove('active');
+        nav.classList.remove('dropdown');
+    }, wait);
+    nav.addEventListener('mouseover', stopWaiting);
+}
 
 /**
  * How we're going to set the active navigation link to the section we're looking at
@@ -76,8 +104,6 @@ function checkActiveSection(ev = new Event('scroll'), log = false) {
 
     if (activeSection[0]) {
         navClick({ target: document.body.querySelector(`nav a[href="#${ activeSection[0].id }"]`) });
-        
-        console.log(activeSection[0].id);
 
         // set the navbar position
         if (activeSection[0].id == 'home') {
@@ -95,27 +121,28 @@ function checkActiveSection(ev = new Event('scroll'), log = false) {
 };
 
 /**
- * Finds what carousel slide we're currently looking at and does some more stuff
+ * Check which carousel slide is currently active
  * 
- * @param {Event} ev The scroll event captured by the carousel
+ * @param {Event} ev The scroll event triggered by a carousel element
  */
 
-function checkActiveSlide(ev = new Event('scroll')) {
+function checkActiveSlide(ev) {
 
 }
 
 
 // Event Listeners
+nav.addEventListener('mouseleave', closeNav);
+
 navAs.forEach(el => {
     el.addEventListener('click', navClick);
 });
 
-navFa.addEventListener('click', expandSidebar);
+faBars.addEventListener('click', faClick);
+faBars.addEventListener('mouseover', faClick);
 
 scrollSnapBodies.forEach(el => {
     el.addEventListener('scroll', checkActiveSection);
 });
 
-baCarouselSlides.childNodes.forEach(el => {
-    el.addEventListener('scroll', checkActiveSlide);
-})
+baCarouselSlides.addEventListener('scroll', checkActiveSlide);

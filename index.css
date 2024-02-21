@@ -1,12 +1,12 @@
 :root {
     /* Color Palette Generated with colormind.io/bootstrap */
-    --light-shade: #F0F0F0;
-    --light-accent: #80BFD5;
-    --main-color: #1BA1DD;
-    --dark-accent: #95816D;
-    --dark-shade: #26363F;
+    --light-shade: #F2F0EE;
+    --light-accent: #61B9D9;
+    --main-color: #0099FF;
+    --dark-accent: #66656F;
+    --dark-shade: #25212B;
 
-    --light-accent-shade: #73acc1;
+    --light-accent-shade: #5aaecc;
 
     /* Using nav-height as a variable for the responsive design */
     --nav-height: 40px;

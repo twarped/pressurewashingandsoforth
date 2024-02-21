@@ -121,7 +121,7 @@ nav a[href="#home"] {
 .logo {
     width: 30px;
     height: 30px;
-    background-image: url(/public/logo.svg);
+    background-image: url(logo.svg);
     background-size: cover;
 
     margin: 5px;
@@ -152,8 +152,8 @@ nav a[href="#home"] {
     background-color: var(--dark-shade);
 
     /* Creates a mask of the background-color */
-    -webkit-mask-image: url(/public/fabars.svg);
-    mask-image: url(/public/fabars.svg);
+    -webkit-mask-image: url(fabars.svg);
+    mask-image: url(fabars.svg);
     /* Simple maths to calculate the mask size using the padding and navbar height */
     mask-size: calc(var(--nav-height) - var(--padding) * 2) calc(var(--nav-height) - var(--padding) * 2);
     mask-origin: content-box;
@@ -358,6 +358,8 @@ footer a:hover {
     
     nav.dropdown .fa-bars {
         background-color: var(--light-shade);
+
+        mask-image: url(x.svg);
     }
     
     nav.dropdown.up {

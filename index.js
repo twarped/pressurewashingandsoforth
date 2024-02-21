@@ -71,7 +71,7 @@ function faClick() {
  * @param {Number} wait Time in milliseconds to wait for user to respond to expanded navbar before closing it.
  */
 
-function closeNav(ev, wait = 250) {
+function closeNav(ev, wait = 300) {
     function stopWaiting() {
         clearTimeout(waitTimeout);
     }

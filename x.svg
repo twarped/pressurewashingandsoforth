@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="600" viewBox="0,0,600,600">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="600" viewBox="0,0,600,600">
     <g>
         <g fill="none" fill-rule="nonzero" stroke="#000000" stroke-width="100" stroke-linecap="round" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-            <line x1="50" y1="50" x2="550" y2="550"/>
-            <line x1="550" y1="50" x2="50" y2="550"/>
+            <line x1="87.867965644" y1="87.867965644" x2="512.132034356" y2="512.132034356"/>
+            <line x1="512.132034356" y1="87.867965644" x2="87.867965644" y2="512.132034356"/>
         </g>
     </g>
 </svg>

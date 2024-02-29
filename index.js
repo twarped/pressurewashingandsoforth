@@ -5,6 +5,9 @@ const nav = document.querySelector('nav');
 const navAs = document.body.querySelectorAll('nav a');
 const faBars = document.body.querySelectorAll('.fa-bars')[0];
 const baCarouselSlides = document.body.querySelector('#beforeandafter .carousel-slides');
+const contactForm = document.getElementById('contact-form');
+const contactFormInputs = contactForm.querySelectorAll('input, textarea');
+const submit = document.getElementById('submit');
 const footer = document.body.querySelector('footer');
 
 
@@ -130,6 +133,32 @@ function checkActiveSlide(ev) {
 
 }
 
+/**
+ * Send the form data to the google sheet.
+ * 
+ * https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_forms_through_JavaScript
+ */
+
+async function sendData() {
+    // Associate the FormData object with the form element
+    const formData = new FormData(contactForm);
+
+    try {
+        submit.value = "Processing Request...";
+        const response = await fetch("https://script.google.com/macros/s/AKfycby-pWhALDx1-YHOMv9rKFAsG4XvkmxAwjBZo26gdKVY_wjLNW_G3o1Xm_3qJW8XvtypzA/exec", {
+            method: "POST",
+            // Set the FormData instance as the request body
+            body: formData,
+        });
+        console.log(await response.json());
+        submit.value = "Success!";
+        contactForm.reset();
+    } catch (e) {
+        console.error(e);
+        submit.value = "Error. Please try again.";
+    }
+}
+
 
 // Event Listeners
 nav.addEventListener('mouseleave', closeNav);
@@ -146,3 +175,17 @@ scrollSnapBodies.forEach(el => {
 });
 
 baCarouselSlides.addEventListener('scroll', checkActiveSlide);
+  
+// Take over form submission
+contactForm.addEventListener("submit", ev => {
+    ev.preventDefault();
+    sendData();
+});
+
+contactFormInputs.forEach(el => {
+    el.addEventListener('input', ev => {
+        if (ev.target.value.length > 0) {
+            submit.value = "Send Job Request";
+        };
+    });
+})

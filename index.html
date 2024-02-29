@@ -67,7 +67,7 @@
                     <div id="contact-info">
     
                     </div>
-                    <form target="_blank"  action="https://script.google.com/macros/s/AKfycby-pWhALDx1-YHOMv9rKFAsG4XvkmxAwjBZo26gdKVY_wjLNW_G3o1Xm_3qJW8XvtypzA/exec" id="contact-form" method="post">
+                    <form id="contact-form">
                         <label for="tel">Phone Number:</label>
                         <input type="tel" name="Phone Number" id="tel" pattern="[0-9]{3}(-|)[0-9]{3}(-|)[0-9]{4}" required>
                         <div>
@@ -83,10 +83,10 @@
                         <label for="address">Address:</label>
                         <input type="text" name="Address" id="address" required>
                         <label for="job-description">Job Description:</label>
-                        <input type="text" name="Job Description" id="job-description" required>
+                        <textarea type="text" name="Job Description" id="job-description" required></textarea>
                         <label for="date">Rough Date:</label>
                         <input type="date" name="Rough Date" id="date" required>
-                        <input type="submit" value="Send Job Request">
+                        <input type="submit" id="submit" value="Send Job Request">
                     </form>
                 </div>
             </article>

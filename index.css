@@ -228,12 +228,17 @@ article {
 #contact > article > div {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     width: 100%;
     height: 100%;
 
     padding: 0px 20px 20px 20px;
     box-sizing: border-box;
+}
+
+path {
+    fill: var(--dark-shade);
 }
 
 #contact-info {
@@ -243,7 +248,8 @@ article {
 
 #contact-form {
     width: 100%;
-    height: 100%;
+    height: fit-content;
+    margin: 0;
 }
 
 #contact-form * {
@@ -262,6 +268,10 @@ article {
 }
 
 #contact-form textarea {
+    min-height: 41px;
+    height: fit-content;
+    max-height: 100px;
+
     border: 1px solid var(--dark-accent);
 
     margin-bottom: 10px;
@@ -284,10 +294,19 @@ article {
 }
 
 #submit {
-    background-color: var(--main-color);
+    cursor: pointer;
+    
+    background-color: var(--light-accent);
     border: none !important;
 
-    margin-bottom: 0;
+    font-family: inherit;
+
+    margin-bottom: 0 !important;
+}
+
+#submit:hover {
+    background-color: var(--main-color);
+    color: var(--light-shade);
 }
 
 footer {
@@ -402,7 +421,7 @@ footer a:hover {
 }
 
 /* This max-width is for a nice look with the articles */
-@media (max-width: 700px) {
+@media (max-width: 670px) {
     article {
         width: 500px;
     }

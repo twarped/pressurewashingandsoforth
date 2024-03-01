@@ -184,8 +184,8 @@ contactForm.addEventListener("submit", ev => {
 
 contactFormInputs.forEach(el => {
     el.addEventListener('input', ev => {
-        if (ev.target.value.length > 0) {
-            submit.value = "Send Job Request";
+        if (ev.target.value != '') {
+            submit.value = 'Send Job Request';
         };
     });
 })

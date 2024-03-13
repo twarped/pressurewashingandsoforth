@@ -212,6 +212,7 @@ article > h1 {
 
 article > article {
     display: block;
+    max-width: 470px;
     width: 100%;
     height: 100%;
     margin: 0;

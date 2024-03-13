@@ -177,7 +177,8 @@ nav a[href="#home"] {
 section {
     display: flex;
     width: 100%;
-    height: calc(100% - var(--nav-height));
+    min-height: calc(100% - var(--nav-height));
+    height: fit-content;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -189,7 +190,10 @@ section {
 article {
     display: flex;
     width: calc(100% - 200px);
-    height: calc(100% - 200px);
+    min-height: calc(100% - 200px);
+    height: fit-content;
+    margin: 100px 0px 100px 0px;
+
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 0px 20px #b3b3b3;
@@ -210,6 +214,7 @@ article > article {
     display: block;
     width: 100%;
     height: 100%;
+    margin: 0;
 
     padding-top: 0;
 
@@ -286,7 +291,7 @@ path {
 }
 
 #contact-info {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
 
     display: flex;
@@ -484,11 +489,11 @@ footer a:hover {
 /* This max-width is for a nice look with the articles */
 @media (max-width: 670px) {
     article {
-        width: 500px;
+        width: 470px;
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 470px) {
     article {
         width: 100%;
 

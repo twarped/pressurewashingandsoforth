@@ -187,16 +187,30 @@ section {
     /* padding-top: var(--nav-height); */
 }
 
+section:has(article > .carousel) {
+    height: calc(100% - var(--nav-height));
+}
+
+/* section#beforeandafter, section#services {
+    height: calc(100% - var(--nav-height));
+}
+
+section#beforeandafter > article, section#services > article {
+    height: calc(100% - 200px);
+    margin: 0;
+} */
+
 article {
     display: flex;
-    width: calc(100% - 200px);
-    min-height: calc(100% - 200px);
+    /* width: calc(100% - 200px); */
+    /* min-height: calc(100% - 200px); */
+    width: 100%;
     height: fit-content;
     margin: 100px 0px 100px 0px;
 
     flex-direction: column;
     align-items: center;
-    box-shadow: 0px 0px 20px #b3b3b3;
+    /* box-shadow: 0px 0px 20px #b3b3b3; */
     border-radius: 5px;
 
     padding: 1em;
@@ -206,13 +220,19 @@ article {
     font-size: large;
 }
 
+article:has(.carousel) {
+    height: 100%;
+
+    margin: 0px;
+}
+
 article > h1 {
     margin-block-start: 0;
 }
 
 article > article {
     display: block;
-    max-width: 470px;
+    max-width: 670px;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -249,8 +269,6 @@ hr {
 }
 
 .carousel-slides>img {
-    width: calc(100% - 60px);
-
     border-radius: 5px;
     scroll-snap-align: center;
     margin-right: 20px;
@@ -258,6 +276,10 @@ hr {
 
 .carousel-slides>img:first-child {
     /* margin-left: 0; */
+}
+
+.carousel-slides>img:last-child {
+    margin-right: 0;
 }
 
 .carousel-slides > div {
@@ -291,26 +313,30 @@ path {
     fill: var(--dark-shade);
 }
 
+
+
 #contact-info {
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
 
+    text-align: left;
+
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: flex-start;
+    justify-content: center;
 
     gap: .25em;
 }
 
-#contact-info > * {
-    height: 1em;
+#contact-info > div {
+    padding-right: 20px;
 }
 
-#contact-info > div {
-    flex-basis: 100%;
+#contact-info a {
+    white-space: nowrap;
+}
 
-    height: 0px;
+#contact-info > div > * {
+    height: 1em;
 }
 
 #contact-form {
@@ -490,7 +516,7 @@ footer a:hover {
 /* This max-width is for a nice look with the articles */
 @media (max-width: 670px) {
     article {
-        width: 470px;
+        /* width: 470px; */
     }
 }
 
@@ -504,9 +530,26 @@ footer a:hover {
     #contact > article > div {
         flex-direction: column;
     }
+
+    #contact-info {
+        text-align: center;
+    }
+
+    #contact-info > div {
+        padding: 0px;
+    }
+
+    #contact-form {
+        margin-top: 1em;
+    }
 }
 
 @media (max-height: 700px) {
+
+    section > article {
+        margin: 0;
+    }
+
     article {
         height: 100%;
         box-shadow: none;

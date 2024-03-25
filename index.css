@@ -26,7 +26,8 @@ body {
     overflow-y: scroll;
 
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
+    /* I wish I could do mandatory right now... but I haven't figured out longer text blocks yet. */
+    scroll-snap-type: y proximity;
     scroll-padding-top: var(--nav-height);
 
     width: 100%;
